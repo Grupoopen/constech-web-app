@@ -1,0 +1,53 @@
+<div mat-dialog-title>
+  <h1>Employee Form</h1>
+</div>
+<form [formGroup]="taskForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Asignado</mat-label>
+        <input matInput type="text" placeholder="Juliana Dominga" formControlName="assigned">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Título</mat-label>
+        <input matInput placeholder="Desarrollo de software" formControlName="title">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Descripcion</mat-label>
+        <input matInput type="text" placeholder="Pruebas en...." formControlName="description">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Estado</mat-label>
+        <input matInput placeholder="Culminado" formControlName="status">
+      </mat-form-field>
+    </div>
+
+
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha inicial</mat-label>
+        <input matInput [matDatepicker]="starDatePicker" formControlName="initialdate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="starDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #starDatePicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha final</mat-label>
+        <input matInput [matDatepicker]="endDatePicker" formControlName="deadline">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" >Cancel</button>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  </div>
+</form>
+
