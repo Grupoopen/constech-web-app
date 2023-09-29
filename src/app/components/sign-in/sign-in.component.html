@@ -1,0 +1,71 @@
+<mat-card>
+    
+    <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <p>
+        <mat-form-field>
+          <div class="formGroup">
+            <input
+              type="text"
+              class="formControl"
+              placeholder="Username"
+              #userName
+              required
+              matInput
+            />
+          </div>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <div class="formGroup">
+            <input
+              type="password"
+              class="formControl"
+              placeholder="Password"
+              #userPassword
+              required
+              matInput
+            />
+          </div>
+        </mat-form-field>
+      </p>
+      
+      
+
+      <p *ngIf="error" class="error">
+        {{ error }}
+      </p>
+      <div class="center-button">
+        <div class="button">   
+          <div class="formGroup">
+            <button
+              type="button"
+              class="btn btnPrimary"
+              value="Log in"
+              (click)="authService.SignIn(userName.value, userPassword.value)"
+              mat-button
+            
+            >Iniciar Sesion</button>
+          </div>        
+        </div>
+        <div class="forgotPassword">
+          <button 
+            routerLink="/forgot-password"
+            mat-button
+          >Olvidaste tu contraseña?</button>
+        </div>
+        <div class="redirectToLogin">
+          <button
+              class="redirect"
+              routerLink="/register-user"
+              mat-button
+            >Registrarse</button>
+        </div>
+      </div>
+      
+    </form>
+  </mat-card-content>
+</mat-card>
