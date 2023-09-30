@@ -6,6 +6,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AuthGuard } from './shared/guard/authguard.guard';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { ListaComponent } from './components/lista/lista.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'register-user', component: SignUpComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
-
+  {path: 'lista',component:ListaComponent,canActivate:[AuthGuard]},
+  
 ];
 
 @NgModule({
