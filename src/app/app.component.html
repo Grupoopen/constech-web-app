@@ -2,9 +2,11 @@
   <h1>Constech web</h1>
   <div class="mat-spacer" > </div>
   
+  
   <a mat-button routerLink="lista"> lista</a>
   <a mat-button *ngFor="let option of options"
      [routerLink]="option.path">{{ option.title }}</a>
+  <a mat-button > Empresas</a>
     
 </mat-toolbar>
 <router-outlet></router-outlet>
