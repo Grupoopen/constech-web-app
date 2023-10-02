@@ -39,7 +39,7 @@ export class ListaComponent implements OnInit {
 //Agrega la card nueva 
 
   addTask() {
-    console.log("agregado a la data", this.newTask);
+    console.log("agregado a la data", this.newTask); //prueba para ver si me esta llegando la info:V
     this.listServ.addTask2(this.newTask).subscribe(() => {
 
       this.getTaskList();

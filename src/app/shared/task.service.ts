@@ -34,22 +34,10 @@ export class TaskService {
     return this._http.get('http://localhost:3000/lista');
   }
   
-  /* getOneTask(_id:any){
-    return TaskList.find(task => task.id === _id)
-
-    
-  } */
-
+  
   addTask2(data:any): Observable<any>{
     return this._http.post('http://localhost:3000/lista', data);
   }
-/* 
-  editTask(newTaskEdit:any){
-    const index=TaskList.findIndex(task=>task.id ===newTaskEdit.id)
-
-    TaskList[index]=newTaskEdit;
-  }
- */
 
     deleteTask2(id:number):Observable<any>{
       return this._http.delete(`http://localhost:3000/lista/${id}`);
