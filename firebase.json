@@ -1,5 +1,10 @@
 {
-<<<<<<< Updated upstream
+
+  "hosting": {
+    "site" : "constech-upc",
+    "public": "public",
+
+
   "hosting": [
     {
       "target": "constech-web-app",
@@ -8,10 +13,11 @@
     }
   ]
 }
-=======
+
   "hosting": {
     "site" : "constech-upc",
     "public": "/src/app",
+
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -20,9 +26,16 @@
     "rewrites": [
       {
         "source": "**",
+
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
+
         "destination": "/src/index.html"
       }
     ]
   }
 }
->>>>>>> Stashed changes
+

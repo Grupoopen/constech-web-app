@@ -62,5 +62,22 @@
       "deadline": "2023-11-17T05:00:00.000Z",
       "id": 5
     }
+  ],
+  "lista": [
+    {
+      "id": 1,
+      "title": "Construcción de API",
+      "description": "C# con .NET Core"
+    },
+    {
+      "id": 2,
+      "title": "Construcción de API",
+      "description": "Java con Spring Boot"
+    },
+    {
+      "id": 3,
+      "title": "",
+      "description": ""
+    }
   ]
 }

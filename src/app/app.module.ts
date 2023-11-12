@@ -38,6 +38,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { ListaComponent } from './components/lista/lista.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -51,7 +52,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     MainComponent,
     EditTaskComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    ListaComponent
   ],
   imports: [
     BrowserModule,
