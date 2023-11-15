@@ -83,18 +83,21 @@
   "companies": [
     {
       "id": 1,
-      "title": "Construcción de API",
-      "description": "C# con .NET Core"
+      "title": "Doig Marine S.A.C.",
+      "description": "Astillero",
+      "ruc": "20526331509"
     },
     {
       "id": 2,
-      "title": "Construcción de API",
-      "description": "Java con Spring Boot"
+      "title": "Alphatech Solutions E.I.R.L.",
+      "description": "Desarrolladores de software",
+      "ruc": "20610663355"
     },
     {
       "id": 3,
       "title": "",
-      "description": ""
+      "description": "",
+      "ruc": ""
     }
   ]
 }
