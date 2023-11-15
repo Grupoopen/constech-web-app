@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'constech-web-app';
   options = [
 
-    { path: '/pages/main', title:'Tareas'},
+    { path: '/main', title:'Tareas'},
 
   ]
 
