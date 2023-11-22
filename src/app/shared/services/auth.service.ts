@@ -40,7 +40,7 @@ export class AuthService {
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             this.SetUserData(user)
-            this.router.navigate(['pages/main']);
+            this.router.navigate(['main']);
           }
         });
       })
