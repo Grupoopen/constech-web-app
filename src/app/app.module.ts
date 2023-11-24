@@ -61,7 +61,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     ListaComponent,
     EditListaComponent,
     ListCompaniesComponent
-    
   ],
   imports: [
  
@@ -87,7 +86,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     MaterialModule, 
     ReactiveFormsModule,
     BrowserAnimationsModule,
-  
     FormsModule, 
     MatFormFieldModule, 
     MatInputModule, 

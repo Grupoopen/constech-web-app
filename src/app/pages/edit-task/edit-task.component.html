@@ -30,7 +30,7 @@
     <div class="row">
       <mat-form-field appearance="outline">
         <mat-label>Fecha inicial</mat-label>
-        <input matInput [matDatepicker]="starDatePicker" formControlName="initialdate">
+        <input matInput [matDatepicker]="starDatePicker" formControlName="initialDate">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="starDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #starDatePicker></mat-datepicker>
@@ -46,8 +46,8 @@
 
   </div>
   <div mat-dialog-actions class="action">
-    <button mat-raised-button type="button" >Cancel</button>
-    <button mat-raised-button color="primary" type="submit">Save</button>
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" type="submit">{{data ? 'Update':'Save'}}</button>
   </div>
 </form>
 
