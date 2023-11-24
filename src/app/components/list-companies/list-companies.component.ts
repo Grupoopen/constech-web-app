@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { CompanyService } from 'src/app/shared/services/companies-service/companies.service';
-import { Company } from 'src/app/shared/listask.module';
+import { Company } from 'src/app/shared/services/companies-service/companies.module';
 
 @Component({
   selector: 'app-list-companies',
@@ -11,19 +11,20 @@ export class ListCompaniesComponent implements OnInit {
 
   companies: Company[] = [];
 
-  newTask: Company = {
+  newCompany: Company = {
     id: 0,
     title: '',
-    description: ''
+    description: '',
+    ruc: 0
   };
 
   constructor(private listServ: CompanyService) { }
 
   ngOnInit(): void {
-    this.getTaskList();
+    this.getCompanyList();
   }
 
-  getTaskList() {
+  getCompanyList() {
     this.listServ.getCompany().subscribe(
       (res: any) => {
         console.log(res); 
@@ -33,5 +34,32 @@ export class ListCompaniesComponent implements OnInit {
         console.error(error);
       }
     );
+  }
+
+  //Agrega la card nueva 
+
+  addCompany() {
+    console.log("agregado a la data", this.newCompany);
+    this.listServ.addCompany2(this.newCompany).subscribe(() => {
+
+      this.getCompanyList();
+    });
+
+    this.newCompany = {
+      id: 0,
+      title: '',
+      description: '',
+      ruc: 0
+    };
+  }
+
+
+  //elimina la card
+  deleteCompany(id: number) {
+    this.listServ.deleteCompany2(id).subscribe(() => {
+  
+      this.getCompanyList();
+    
+    });
   }
 }

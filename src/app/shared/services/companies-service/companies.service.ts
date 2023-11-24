@@ -27,23 +27,17 @@ export class CompanyService {
 
 
   getCompany():Observable<any>{
-    return this._http.get('http://localhost:3000/lista');
+    return this._http.get('http://localhost:3000/companies');
   }
 
 
   addCompany2(data:any): Observable<any>{
-    return this._http.post('http://localhost:3000/lista', data);
+    return this._http.post('http://localhost:3000/companies', data);
   }
-/* 
-  editTask(newTaskEdit:any){
-    const index=TaskList.findIndex(task=>task.id ===newTaskEdit.id)
 
-    TaskList[index]=newTaskEdit;
-  }
- */
 
-    deleteTask2(id:number):Observable<any>{
-      return this._http.delete(`http://localhost:3000/lista/${id}`);
+    deleteCompany2(id:number):Observable<any>{
+      return this._http.delete(`http://localhost:3000/companies/${id}`);
     }
 
   

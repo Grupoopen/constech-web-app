@@ -1,3 +1,4 @@
+<!--Card para agregar :D-->
 <div class="lista" style="display: grid; grid-template-columns: auto auto ;">
   <div class="part1">
     <mat-card class="custom-card" style="background-color: rgb(223, 154, 6); width: 300px; align-items: center; margin: 20px;">
@@ -16,25 +17,43 @@
               <textarea matInput [(ngModel)]="newTask.description" name="description" placeholder="Descripcion de la tarea"></textarea>
             </mat-form-field>
           </div>
-          <button mat-raised-button color="primary" (click)="addCompany()">Agregar</button>
+          <div class="form-group">
+            <mat-form-field appearance="fill">
+              <textarea matInput [(ngModel)]="newTask.name" name="description" placeholder="Nombre de la Empresa "></textarea>
+            </mat-form-field>
+          </div>
+     <!--      <div class="form-group">
+            <mat-form-field appearance="fill">
+              <textarea matInput [(ngModel)]="newTask.endDate" name="description" placeholder="Dia de entrega"></textarea>
+            </mat-form-field>
+          </div>
+           -->
+          <button mat-raised-button color="primary" (click)="addTask()">Agregar</button>
         </form>
       </mat-card-content>
     </mat-card>
   </div>
+
+<!-- las Card que se muestran despues  agregar :D-->
   <div class="part2">
     <h2>Lista de Proyectos</h2>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;  ">
+      <!-- Para crear tus cartas -->
       <div *ngFor="let task of tasks">
-        <mat-card class="custom-card2" style="width: 300px;">
+        <mat-card class="custom-card2" style="width: 300px; ">
           <mat-card-header>
-            <mat-card-title>Proyecto</mat-card-title>
+            <mat-card-title>{{ task.title }}</mat-card-title>
           </mat-card-header>
           <mat-card-content>
-            <h3>{{ task.title }}</h3>
+            <h2> {{task.id}}</h2>
+            <p> Empresa a cargo : {{task.name}}</p>
+            <p>{{task.endDate}}</p>
             <p>{{ task.description }}</p>
           </mat-card-content>
+
+           
           <mat-card-actions>
-            <button mat-raised-button color="warn">Edit</button>
+            <button mat-raised-button color="warn" style="margin: 10px;" (click)="openEditForm(task)"> Edit</button>
             <button mat-raised-button color="accent" (click)="deleteTask(task.id)">Delete</button>
           </mat-card-actions>
         </mat-card>

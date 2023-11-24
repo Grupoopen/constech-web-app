@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Editar Tarea</h1>
+<div mat-dialog-content>
+  <form>
+    <mat-form-field appearance="fill">
+        <p>Titulo </p>
+      <input matInput name="title" placeholder="Título de la tarea" [(ngModel)]="updatedTask.title">
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+        <p>Empresa a cargo</p>
+      <input matInput name="name" placeholder="Empresa a cargo" [(ngModel)]="updatedTask.name">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <p>Descripcion</p>
+      <textarea matInput name="description" placeholder="Descripción" [(ngModel)]="updatedTask.description"></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="updateTask()">Actualizar</button>
+  <button mat-button (click)="dialogRef.close()">Cancelar</button>
+</div>

@@ -1,23 +1,6 @@
 {
-
   "hosting": {
-    "site" : "constech-upc",
-    "public": "public",
-
-
-  "hosting": [
-    {
-      "target": "constech-web-app",
-      "source": ".",
-      "frameworksBackend": {}
-    }
-  ]
-}
-
-  "hosting": {
-    "site" : "constech-upc",
-    "public": "/src/app",
-
+    "public": "/dist/constech-web-app",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -26,16 +9,8 @@
     "rewrites": [
       {
         "source": "**",
-
-        "destination": "/index.html"
+        "destination": "/dist"
       }
     ]
   }
 }
-
-        "destination": "/src/index.html"
-      }
-    ]
-  }
-}
-
