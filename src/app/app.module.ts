@@ -42,6 +42,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { ListaComponent } from './components/lista/lista.component';
 import { EditListaComponent } from './pages/edit-lista/edit-lista.component';
+import { ListCompaniesComponent } from './components/list-companies/list-companies.component';
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -58,7 +59,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     SignInComponent,
     SignUpComponent,
     ListaComponent,
-    EditListaComponent
+    EditListaComponent,
+    ListCompaniesComponent
+    
   ],
   imports: [
  
