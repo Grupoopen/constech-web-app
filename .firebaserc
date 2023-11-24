@@ -1,6 +1,6 @@
 {
   "targets": {
-    "doigmarine-6dc38": {
+    "constech-upc-702da": {
       "hosting": {
         "constech-web-app": [
           "constech-upc"
@@ -9,6 +9,6 @@
     }
   },
   "projects": {
-    "default": "doigmarine-6dc38"
+    "default": "constech-upc-702da"
   }
 }

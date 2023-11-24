@@ -84,5 +84,25 @@
       "title": "PROYECTO TP",
       "description": "Responsive"
     }
+  ],
+  "companies": [
+    {
+      "id": 1,
+      "title": "Doig Marine S.A.C.",
+      "description": "Astillero",
+      "ruc": "20526331509"
+    },
+    {
+      "id": 2,
+      "title": "Alphatech Solutions E.I.R.L.",
+      "description": "Desarrolladores de software",
+      "ruc": "20610663355"
+    },
+    {
+      "id": 3,
+      "title": "",
+      "description": "",
+      "ruc": ""
+    }
   ]
 }

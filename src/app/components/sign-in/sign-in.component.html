@@ -17,7 +17,19 @@
           </div>
         </mat-form-field>
       </p>
-
+      <p>
+        <mat-form-field>
+          <div class="formGroup">
+            <input
+              type="text"
+              class="formControl"
+              placeholder="DNI"
+              required
+              matInput
+            />
+          </div>
+        </mat-form-field>
+      </p>
       <p>
         <mat-form-field>
           <div class="formGroup">
@@ -47,7 +59,7 @@
               value="Log in"
               (click)="authService.SignIn(userName.value, userPassword.value)"
               mat-button
-            
+
             >Iniciar Sesion</button>
           </div>        
         </div>
