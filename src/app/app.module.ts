@@ -25,6 +25,7 @@ import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 import { MaterialModule } from './material.module';
 import { CommonModule, NgIf } from '@angular/common';
 
+
 //Firebase Configuration Imports
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -33,12 +34,15 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../enviroments/enviroments';
 
+
 //Import Components for Material Design
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { ListaComponent } from './components/lista/lista.component';
+import { EditListaComponent } from './pages/edit-lista/edit-lista.component';
+
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -53,9 +57,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     EditTaskComponent,
     SignInComponent,
     SignUpComponent,
-    ListaComponent
+    ListaComponent,
+    EditListaComponent
+    
   ],
   imports: [
+ 
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -78,6 +85,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     MaterialModule, 
     ReactiveFormsModule,
     BrowserAnimationsModule,
+  
     FormsModule, 
     MatFormFieldModule, 
     MatInputModule, 

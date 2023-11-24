@@ -17,6 +17,17 @@
               <textarea matInput [(ngModel)]="newTask.description" name="description" placeholder="Descripcion de la tarea"></textarea>
             </mat-form-field>
           </div>
+          <div class="form-group">
+            <mat-form-field appearance="fill">
+              <textarea matInput [(ngModel)]="newTask.name" name="description" placeholder="Nombre de la Empresa "></textarea>
+            </mat-form-field>
+          </div>
+     <!--      <div class="form-group">
+            <mat-form-field appearance="fill">
+              <textarea matInput [(ngModel)]="newTask.endDate" name="description" placeholder="Dia de entrega"></textarea>
+            </mat-form-field>
+          </div>
+           -->
           <button mat-raised-button color="primary" (click)="addTask()">Agregar</button>
         </form>
       </mat-card-content>
@@ -31,14 +42,18 @@
       <div *ngFor="let task of tasks">
         <mat-card class="custom-card2" style="width: 300px; ">
           <mat-card-header>
-            <mat-card-title>Proyecto por realizar</mat-card-title>
+            <mat-card-title>{{ task.title }}</mat-card-title>
           </mat-card-header>
           <mat-card-content>
-            <h3>{{ task.title }}</h3>
+            <h2> {{task.id}}</h2>
+            <p> Empresa a cargo : {{task.name}}</p>
+            <p>{{task.endDate}}</p>
             <p>{{ task.description }}</p>
           </mat-card-content>
+
+           
           <mat-card-actions>
-            <button mat-raised-button color="warn" style="margin: 10px;">Edit</button>
+            <button mat-raised-button color="warn" style="margin: 10px;" (click)="openEditForm(task)"> Edit</button>
             <button mat-raised-button color="accent" (click)="deleteTask(task.id)">Delete</button>
           </mat-card-actions>
         </mat-card>
