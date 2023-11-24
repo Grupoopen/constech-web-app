@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';  // Asegúrate de tener esta importación
-import { TaskService } from 'src/app/shared/task.service';
-import { Task } from '../../shared/listask.module';
+import { TaskService } from 'src/app/shared/services/task-service/task.service';
+import { Task } from '../../models/listask.module';
 import { EditListaComponent } from 'src/app/pages/edit-lista/edit-lista.component';
 
 @Component({
@@ -65,7 +65,7 @@ export class ListaComponent implements OnInit {
     const dialogRef = this._dialog.open(EditListaComponent, {
       data: { task: data },
     });
-  
+
     dialogRef.afterClosed().subscribe({
       next: (updatedTask) => {
         if (updatedTask) {
@@ -77,5 +77,5 @@ export class ListaComponent implements OnInit {
       },
     });
   }
-  
+
 }

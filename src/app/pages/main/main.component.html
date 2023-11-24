@@ -1,80 +1,93 @@
-
-<h1>TAREAS ACTIVAS</h1>
-
-<div class="main body">
-  <mat-form-field>
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-  </mat-form-field>
-  <button mat-raised-button (click)="openAddEditTask()">
-    Añadir Tarea
-  </button>
+<div class="container">
+  <h1>TAREAS ACTIVAS</h1>
 
 
-  <table mat-table [dataSource]="dataSource">
+  <div class="main body">
+
+    <button mat-raised-button (click)="openAddEditTask()">
+      Añadir Tarea
+    </button>
 
 
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-    </ng-container>
+    <table mat-table [dataSource]="dataSource">
 
 
-    <ng-container matColumnDef="assigned">
-      <th mat-header-cell *matHeaderCellDef> Asignado </th>
-      <td mat-cell *matCellDef="let element"> {{element.assigned}} </td>
-    </ng-container>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
 
 
-    <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef> Titulo </th>
-      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
-    </ng-container>
+      <ng-container matColumnDef="assigned">
+        <th mat-header-cell *matHeaderCellDef> Asignado </th>
+        <td mat-cell *matCellDef="let element"> {{element.assigned}} </td>
+      </ng-container>
 
 
-    <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef> Descripcion </th>
-      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
-    </ng-container>
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Titulo </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
 
 
-    <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef> Estado </th>
-      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
-    </ng-container>
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
 
 
-    <ng-container matColumnDef="initialdate">
-      <th mat-header-cell *matHeaderCellDef> Fecha inicial </th>
-      <td mat-cell *matCellDef="let element"> {{element.initialdate}} </td>
-    </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Estado </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
 
 
-    <ng-container matColumnDef="deadline">
-      <th mat-header-cell *matHeaderCellDef> Fecha inicial  </th>
-      <td mat-cell *matCellDef="let element"> {{element.deadline}} </td>
-    </ng-container>
+      <ng-container matColumnDef="initialDate">
+        <th mat-header-cell *matHeaderCellDef> Fecha inicial </th>
+        <td mat-cell *matCellDef="let element"> {{element.initialDate}} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef> Accion  </th>
-      <td mat-cell *matCellDef="let element">
-        <button mat-icon-button color="primary">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button color="warn" (click)="deleteTask(element.id)">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </ng-container>
+
+      <ng-container matColumnDef="deadline">
+        <th mat-header-cell *matHeaderCellDef> Fecha inicial  </th>
+        <td mat-cell *matCellDef="let element"> {{element.deadline}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Accion  </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="openEditTask(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteTask(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
 
 
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                 showFirstLastButtons
-                 aria-label="Select page of periodic elements">
-  </mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10, 15]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+
+    <h2>Filtrados:</h2>
+
+    <mat-form-field>
+      <mat-label>Buscar por Asignado</mat-label>
+      <input matInput  (keyup)="getTaskByAssigned($event)" placeholder="Ingrese el assignado"  #input>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Buscar por Título</mat-label>
+      <input matInput  (keyup)="getTaskTitle($event)" placeholder="Ingrese el título"  #input>
+    </mat-form-field>
+
+
+  </div>
 </div>
