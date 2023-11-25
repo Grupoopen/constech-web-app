@@ -12,7 +12,7 @@ import { EditListaComponent } from 'src/app/pages/edit-lista/edit-lista.componen
 })
 export class ListaComponent implements OnInit {
   tasks: Task[] = [];
-  newTask: Task = { id: 0, title: '', description: '', name: '', endDate: new Date() };
+  newTask: Task = { id: 0, title: '', description: '', name: '', clientName:'',clientEmail:'',startDate: new Date(),status:'en proceso',endDate: new Date() };
   errorMessage: string | null = null; 
 
   constructor(private listServ: TaskService, private _dialog: MatDialog) { }
@@ -52,7 +52,7 @@ export class ListaComponent implements OnInit {
       }
     );
 
-    this.newTask = { id: 0, title: '', description: '', name: '', endDate: new Date() }; // Restaura la fecha a la actual
+    this.newTask = { id: 0, title: '', description: '', name: '', clientName:'',clientEmail:'',startDate:new Date(),status:'en proceso', endDate: new Date() }; // Restaura la fecha a la actual
   }
 
   deleteTask(id: number) {
