@@ -14,7 +14,27 @@
             </div>
             <div class="form-group">
               <mat-form-field appearance="fill">
+                <input matInput [(ngModel)]="newCompany.ceo" name="ceo" placeholder="CEO">
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <mat-form-field appearance="fill">
                 <textarea matInput [(ngModel)]="newCompany.ruc" name="ruc" placeholder="RUC"></textarea>
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <mat-form-field appearance="fill">
+                <input matInput [(ngModel)]="newCompany.address" name="address" placeholder="Direccion">
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <mat-form-field appearance="fill">
+                <input matInput [(ngModel)]="newCompany.contactMail" name="contactMail" placeholder="Correo">
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <mat-form-field appearance="fill">
+                <input matInput [(ngModel)]="newCompany.contactNumber" name="contactNumber" placeholder="Telefono">
               </mat-form-field>
             </div>
             <div class="form-group">
@@ -38,10 +58,15 @@
             <mat-card-content>
               <h3>R.S.: {{ company.companyName }}</h3>
               <h2>RUC: {{ company.ruc }}</h2>
-              <p>{{ company.description }}</p>
+              <p>Rubro: {{ company.description }}</p>
+              <p>-Contacto-</p>
+              <p>Gerente: {{ company.ceo }}</p>
+              <p>Direccion: {{ company.address }}</p>
+              <p>Correo: {{ company.contactMail }}</p>
+              <p>Telefono: {{ company.contactNumber }}</p>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-raised-button color="warn">Edit</button>
+              
               <button mat-raised-button color="accent" (click)="deleteCompany(company.id)">Delete</button>
             </mat-card-actions>
           </mat-card>

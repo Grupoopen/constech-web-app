@@ -19,8 +19,9 @@ export class ListCompaniesComponent implements OnInit {
     ceo: '',
     address: '',
     contactMail: '',
-    contactNumber: '',
+    contactNumber: ''
   };
+  http: any;
 
   constructor(private listServ: CompanyService) { }
 
@@ -39,28 +40,16 @@ export class ListCompaniesComponent implements OnInit {
       }
     );
   }
-
+  
   //Agrega la card nueva 
 
   addCompany() {
-    console.log("agregado a la data", this.newCompany);
     this.listServ.addCompany2(this.newCompany).subscribe(() => {
-
+  
       this.getCompanyList();
+    
     });
-
-    this.newCompany = {
-      id: 0,
-      ruc: '',
-      companyName: '',
-      description: '',
-      ceo: '',
-      address: '',
-      contactMail: '',
-      contactNumber: '',
-    };
   }
-
 
   //elimina la card
   deleteCompany(id: number) {
