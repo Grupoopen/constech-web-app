@@ -6,6 +6,9 @@
   <a mat-button *ngFor="let option of options"
      [routerLink]="option.path">{{ option.title }}</a>
 
+  <button mat-button color="warn" (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon> Salir
+  </button>
 
 
 </mat-toolbar>
