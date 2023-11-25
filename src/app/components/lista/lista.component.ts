@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskService } from 'src/app/shared/task.service';
-import { Task } from '../../shared/listask.module';
+import { Task } from 'src/app/models/listask.module';
+
 import { EditListaComponent } from 'src/app/pages/edit-lista/edit-lista.component';
 
 @Component({
