@@ -48,6 +48,9 @@ export class AuthService {
         window.alert(error.message);
       });
   }
+  DNI(dni: string){
+    
+  }
   // Sign up with email/password
   SignUp(email: string, password: string) {
     return this.afAuth

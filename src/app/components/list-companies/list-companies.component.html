@@ -8,7 +8,7 @@
           <form>
             <div class="form-group">
               <mat-form-field appearance="fill">
-                <input matInput [(ngModel)]="newCompany.title" name="title" placeholder="Razon social de la empresa">
+                <input matInput [(ngModel)]="newCompany.companyName" name="companyName" placeholder="Razon social de la empresa">
               </mat-form-field>
             </div>
             <div class="form-group">
@@ -35,7 +35,7 @@
               <mat-card-title>Empresa</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-              <h3>R.S.: {{ company.title }}</h3>
+              <h3>R.S.: {{ company.companyName }}</h3>
               <h2>RUC: {{ company.ruc }}</h2>
               <p>{{ company.description }}</p>
             </mat-card-content>

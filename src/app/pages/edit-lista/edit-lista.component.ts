@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TaskService } from 'src/app/shared/task.service'; // Asegúrate de especificar la ruta correcta
-import { Task } from 'src/app/shared/listask.module'; // Asegúrate de especificar la ruta correcta
+import { TaskService } from 'src/app/shared/services/task-service/task.service'; // Asegúrate de especificar la ruta correcta
+import { Task } from 'src/app/models/listask.module'; // Asegúrate de especificar la ruta correcta
 
 @Component({
   selector: 'app-edit-lista',
@@ -33,5 +33,5 @@ export class EditListaComponent {
       }
     );
   }
-  
+
 }

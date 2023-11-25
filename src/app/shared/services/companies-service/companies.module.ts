@@ -1,6 +1,10 @@
 export interface Company{
-    id: number;
-    title:string;
-    description:string;
-    ruc: number;
+    id: number,
+    ruc: string,
+    companyName: string,
+    description: string,
+    ceo: string,
+    address: string,
+    contactMail: string,
+    contactNumber: string
   }

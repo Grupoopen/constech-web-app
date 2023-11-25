@@ -13,9 +13,13 @@ export class ListCompaniesComponent implements OnInit {
 
   newCompany: Company = {
     id: 0,
-    title: '',
+    ruc: '',
+    companyName: '',
     description: '',
-    ruc: 0
+    ceo: '',
+    address: '',
+    contactMail: '',
+    contactNumber: '',
   };
 
   constructor(private listServ: CompanyService) { }
@@ -47,9 +51,13 @@ export class ListCompaniesComponent implements OnInit {
 
     this.newCompany = {
       id: 0,
-      title: '',
+      ruc: '',
+      companyName: '',
       description: '',
-      ruc: 0
+      ceo: '',
+      address: '',
+      contactMail: '',
+      contactNumber: '',
     };
   }
 
