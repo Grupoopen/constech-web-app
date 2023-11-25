@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';  // Asegúrate de tener esta importación
+import { MatDialog } from '@angular/material/dialog';
 import { TaskService } from 'src/app/shared/task.service';
 import { Task } from '../../shared/listask.module';
 import { EditListaComponent } from 'src/app/pages/edit-lista/edit-lista.component';
@@ -11,18 +11,10 @@ import { EditListaComponent } from 'src/app/pages/edit-lista/edit-lista.componen
 })
 export class ListaComponent implements OnInit {
   tasks: Task[] = [];
+  newTask: Task = { id: 0, title: '', description: '', name: '', endDate: new Date() };
+  errorMessage: string | null = null; 
 
-  newTask: Task = {
-    id: 0,
-    title: '',
-    description: '',
-    name:'',
-    endDate:'',
-  };
-
-  constructor(private listServ: TaskService, private _dialog: MatDialog) {  // Corregir aquí
-
-  }
+  constructor(private listServ: TaskService, private _dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getTaskList();
@@ -33,26 +25,33 @@ export class ListaComponent implements OnInit {
       (res: any) => {
         console.log(res);
         this.tasks = res;
+        this.clearErrorMessage(); // Limpiar el mensaje de error al recibir nuevas tareas exitosamente
       },
       (error) => {
         console.error(error);
+        this.errorMessage = this.extractErrorMessage(error);
+        this.clearErrorMessageAfterDelay();
       }
     );
   }
 
   addTask() {
     console.log("agregado a la data", this.newTask);
-    this.listServ.addTask2(this.newTask).subscribe(() => {
-      this.getTaskList();
-    });
 
-    this.newTask = {
-      id: 0,
-      title: '',
-      description: '',
-      name:'',
-      endDate:''
-    };
+    // Realiza la llamada a tu servicio aquí
+    this.listServ.addTask2(this.newTask).subscribe(
+      () => {
+        this.getTaskList();
+        this.clearErrorMessage(); // Limpiar el mensaje de error al agregar una nueva tarea exitosamente
+      },
+      (error) => {
+        console.error(error);
+        this.errorMessage = this.extractErrorMessage(error);
+        this.clearErrorMessageAfterDelay();
+      }
+    );
+
+    this.newTask = { id: 0, title: '', description: '', name: '', endDate: new Date() }; // Restaura la fecha a la actual
   }
 
   deleteTask(id: number) {
@@ -65,17 +64,38 @@ export class ListaComponent implements OnInit {
     const dialogRef = this._dialog.open(EditListaComponent, {
       data: { task: data },
     });
-  
+
     dialogRef.afterClosed().subscribe({
       next: (updatedTask) => {
         if (updatedTask) {
-          // Utiliza el nombre correcto del método en el servicio: updateTasks
           this.listServ.updateTasks(updatedTask).subscribe(() => {
             this.getTaskList();
+            this.clearErrorMessage(); // Limpiar el mensaje de error al actualizar una tarea exitosamente
           });
         }
       },
     });
   }
-  
+
+  private extractErrorMessage(error: any): string {
+    // Extraemos el mensaje de error
+    if (error.error && error.error.message) {
+      return error.error.message;
+    }
+
+    // En el caso de que no exista ningún mensaje específico
+    return "Se produjo un error. Por favor, inténtelo nuevamente.";
+  }
+
+  private clearErrorMessage() {
+    // Limpiar el mensaje de error
+    this.errorMessage = null;
+  }
+
+  private clearErrorMessageAfterDelay() {
+    // Limpiar el mensaje de error después de 3 segundos
+    setTimeout(() => {
+      this.clearErrorMessage();
+    }, 3000);
+  }
 }

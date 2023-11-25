@@ -29,23 +29,25 @@ export class TaskService {
 
 
 
+  
+
 
   getTasks():Observable<any>{
-    return this._http.get('https://655e13e09f1e1093c59a7b50.mockapi.io/api/v1/CONSTECH');
+    return this._http.get('http://localhost:8040/projects');
   }
   
   
   addTask2(data:any): Observable<any>{
-    return this._http.post('https://655e13e09f1e1093c59a7b50.mockapi.io/api/v1/CONSTECH', data);
+    return this._http.post('http://localhost:8040/projects', data);
   }
 
     deleteTask2(id:number):Observable<any>{
-      return this._http.delete(`https://655e13e09f1e1093c59a7b50.mockapi.io/api/v1/CONSTECH/${id}`);
+      return this._http.delete(`http://localhost:8040/projects/${id}`);
     }
     
     updateTasks(updatedTask: Task): Observable<any> {
       const id = updatedTask.id;
-      return this._http.put(`https://655e13e09f1e1093c59a7b50.mockapi.io/api/v1/CONSTECH/${id}`, updatedTask);
+      return this._http.put(`http://localhost:8040/projects/${id}`, updatedTask);
     }
     
 

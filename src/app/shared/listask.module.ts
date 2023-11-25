@@ -4,5 +4,5 @@ export interface Task{
     title:string;
     description:string;
     name: string;
-    endDate:string;
+    endDate: Date;
   }

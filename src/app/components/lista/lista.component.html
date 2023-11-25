@@ -1,5 +1,6 @@
 <!--Card para agregar :D-->
 <div class="lista" style="display: grid; grid-template-columns: auto auto ;">
+
   <div class="part1">
     <mat-card class="custom-card" style="background-color: rgb(223, 154, 6); width: 300px; align-items: center; margin: 20px;">
       <mat-card-header>
@@ -27,7 +28,7 @@
               <textarea matInput [(ngModel)]="newTask.endDate" name="description" placeholder="Dia de entrega"></textarea>
             </mat-form-field>
           </div>
-           -->
+           -->   <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
           <button mat-raised-button color="primary" (click)="addTask()">Agregar</button>
         </form>
       </mat-card-content>
