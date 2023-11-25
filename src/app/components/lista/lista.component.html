@@ -42,12 +42,24 @@
           
           
        
-          <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+          <textarea *ngIf="errorMessage" class="error-message">{{ errorMessage }}</textarea>
+          <br>
           <button mat-raised-button color="primary" (click)="addTask()">Agregar</button>
         </form>
       </mat-card-content>
     </mat-card>
+<!-- Checkbox para obtener todas las tareas -->
+<mat-checkbox class="example-margin" [(ngModel)]="filterAll" (change)="onFilterChange()">Todos</mat-checkbox>
+
+<!-- Checkbox para obtener tareas 'En Proceso' -->
+<mat-checkbox class="example-margin" [(ngModel)]="filterInProgress" (change)="onFilterChange()">En Proceso</mat-checkbox>
+
+<!-- Checkbox para obtener tareas 'Finalizado' -->
+<mat-checkbox class="example-margin" [(ngModel)]="filterCompleted" (change)="onFilterChange()">Finalizado</mat-checkbox>
+
   </div>
+
+
 
 <!-- las Card que se muestran despues  agregar :D-->
   <div class="part2">

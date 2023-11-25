@@ -1,4 +1,45 @@
-*{
-    margin:10px;
-    display: block;
-}
+/* Agrega este estilo en tu archivo CSS */
+
+h1 {
+    color: #673ab7; /* Color del título */
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  mat-label {
+    color: #2196f3; /* Color de las etiquetas */
+  }
+  
+  textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+  }
+  
+  mat-select {
+    width: 100%;
+  }
+  
+  /* Estilo para el texto seleccionado en el mat-select */
+  .mat-select-value-text {
+    text-transform: capitalize; /* Convierte la primera letra de cada palabra en mayúscula */
+  }
+  
+  mat-dialog-actions {
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    margin-top: 20px;
+  }
+  
+  /* Estilo para el botón "Actualizar" */
+  button.mat-flat-button {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  /* Estilo para el botón "Cancelar" */
+  button.mat-flat-button[mat-dialog-close] {
+    background-color: #f44336;
+    color: #fff;
+  }
+  

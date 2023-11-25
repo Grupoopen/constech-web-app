@@ -34,6 +34,14 @@ export class TaskService {
     return this._http.get('http://localhost:8040/projects');
   }
   
+
+  
+
+  getProjectsByStatus(status?: string): Observable<any> {
+    const url = status ? `http://localhost:8040/projects/bystatus/${status}` : 'http://localhost:8040/projects';
+    return this._http.get(url);
+  }
+  
   
   addTask2(data:any): Observable<any>{
     return this._http.post('http://localhost:8040/projects', data);

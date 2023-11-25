@@ -12,29 +12,68 @@ import { EditListaComponent } from 'src/app/pages/edit-lista/edit-lista.componen
 })
 export class ListaComponent implements OnInit {
   tasks: Task[] = [];
-  newTask: Task = { id: 0, title: '', description: '', name: '', clientName:'',clientEmail:'',startDate: new Date(),status:'en proceso',endDate: new Date() };
+  newTask: Task = { id: 0, title: '', description: '', name: '', clientName:'',clientEmail:'',startDate: new Date(),status:'proceso',endDate: new Date() };
   errorMessage: string | null = null; 
 
   constructor(private listServ: TaskService, private _dialog: MatDialog) { }
+
+  filterAll: boolean = true;
+  filterInProgress: boolean = false;
+  filterCompleted: boolean = false;
 
   ngOnInit(): void {
     this.getTaskList();
   }
 
-  getTaskList() {
-    this.listServ.getTasks().subscribe(
-      (res: any) => {
-        console.log(res);
-        this.tasks = res;
-        this.clearErrorMessage(); // Limpiar el mensaje de error al recibir nuevas tareas exitosamente
-      },
-      (error) => {
-        console.error(error);
-        this.errorMessage = this.extractErrorMessage(error);
-        this.clearErrorMessageAfterDelay();
-      }
-    );
+  // Método para manejar cambios en los checkboxes
+  onFilterChange() {
+    this.getTaskList(); // Actualizar la lista cuando cambia el filtro
   }
+
+  getTaskList() {
+    // Obtener tareas según el estado de los checkboxes
+    if (this.filterAll) {
+      this.listServ.getTasks().subscribe(
+        (res: any) => {
+          console.log(res);
+          this.tasks = res;
+          this.clearErrorMessage();
+        },
+        (error) => {
+          console.error(error);
+          this.errorMessage = this.extractErrorMessage(error);
+          this.clearErrorMessageAfterDelay();
+        }
+      );
+    } else if (this.filterInProgress) {
+      this.listServ.getProjectsByStatus('proceso').subscribe(
+        (res: any) => {
+          console.log(res);
+          this.tasks = res;
+          this.clearErrorMessage();
+        },
+        (error) => {
+          console.error(error);
+          this.errorMessage = this.extractErrorMessage(error);
+          this.clearErrorMessageAfterDelay();
+        }
+      );
+    } else if (this.filterCompleted) {
+      this.listServ.getProjectsByStatus('finalizado').subscribe(
+        (res: any) => {
+          console.log(res);
+          this.tasks = res;
+          this.clearErrorMessage();
+        },
+        (error) => {
+          console.error(error);
+          this.errorMessage = this.extractErrorMessage(error);
+          this.clearErrorMessageAfterDelay();
+        }
+      );
+    }
+  }
+
 
   addTask() {
     console.log("agregado a la data", this.newTask);
@@ -52,7 +91,7 @@ export class ListaComponent implements OnInit {
       }
     );
 
-    this.newTask = { id: 0, title: '', description: '', name: '', clientName:'',clientEmail:'',startDate:new Date(),status:'en proceso', endDate: new Date() }; // Restaura la fecha a la actual
+    this.newTask = { id: 0, title: '', description: '', name: '', clientName:'',clientEmail:'',startDate:new Date(),status:'proceso', endDate: new Date() }; // Restaura la fecha a la actual
   }
 
   deleteTask(id: number) {
@@ -99,4 +138,7 @@ export class ListaComponent implements OnInit {
       this.clearErrorMessage();
     }, 3000);
   }
+
+
+
 }
