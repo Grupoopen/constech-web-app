@@ -1,3 +1,4 @@
+<app-header></app-header>
 <!--Card para agregar :D-->
 <div class="lista" style="display: grid; grid-template-columns: auto auto ;">
   <div class="part1">
@@ -51,7 +52,7 @@
             <p>{{ task.description }}</p>
           </mat-card-content>
 
-           
+
           <mat-card-actions>
             <button mat-raised-button color="warn" style="margin: 10px;" (click)="openEditForm(task)"> Edit</button>
             <button mat-raised-button color="accent" (click)="deleteTask(task.id)">Delete</button>
