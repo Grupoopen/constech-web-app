@@ -19,7 +19,7 @@ export class ListCompaniesComponent implements OnInit {
     ceo: '',
     address: '',
     contactMail: '',
-    contactNumber: '',
+    contactNumber: ''
   };
 
   constructor(private listServ: CompanyService) { }
@@ -43,13 +43,7 @@ export class ListCompaniesComponent implements OnInit {
   //Agrega la card nueva 
 
   addCompany() {
-    console.log("agregado a la data", this.newCompany);
-    this.listServ.addCompany2(this.newCompany).subscribe(() => {
-
-      this.getCompanyList();
-    });
-
-    this.newCompany = {
+    const companyData = {
       id: 0,
       ruc: '',
       companyName: '',
@@ -57,8 +51,25 @@ export class ListCompaniesComponent implements OnInit {
       ceo: '',
       address: '',
       contactMail: '',
-      contactNumber: '',
+      contactNumber: ''
     };
+
+    this.listServ.addCompany(companyData)
+      .subscribe(
+        (response: Company) => {
+          // Handle the successful response from the API
+          console.log('New company added:', response);
+          // Display a success message to the user
+          alert('New company added successfully!');
+          // You can update the UI or redirect the user as needed
+        },
+        (error: Company) => {
+          // Handle any errors that occurred during the API call
+          console.error('Error adding company:', error);
+          // Display an error message to the user
+          alert('An error occurred while adding the company. Please try again.');
+        }
+      );
   }
 
 
