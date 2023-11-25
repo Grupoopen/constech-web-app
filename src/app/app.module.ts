@@ -25,7 +25,7 @@ import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 import { MaterialModule } from './material.module';
 import { CommonModule, NgIf } from '@angular/common';
 import {HeaderComponent} from "./pages/header/header.component";
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 //Firebase Configuration Imports
 import { AngularFireModule } from '@angular/fire/compat';
@@ -69,7 +69,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     EmpCrudComponent
   ],
   imports: [
-
+    MatCheckboxModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

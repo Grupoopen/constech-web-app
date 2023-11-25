@@ -74,6 +74,8 @@ export class TaskService {
   }
 
 
+  
+
   addTask2(data:any): Observable<any>{
     return this._http.post('https://655e13e09f1e1093c59a7b50.mockapi.io/api/v1/CONSTECH', data);
   }
