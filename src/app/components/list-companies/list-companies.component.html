@@ -57,10 +57,15 @@
             <mat-card-content>
               <h3>R.S.: {{ company.companyName }}</h3>
               <h2>RUC: {{ company.ruc }}</h2>
-              <p>{{ company.description }}</p>
+              <p>Rubro: {{ company.description }}</p>
+              <p>-Contacto-</p>
+              <p>Gerente: {{ company.ceo }}</p>
+              <p>Direccion: {{ company.address }}</p>
+              <p>Correo: {{ company.contactMail }}</p>
+              <p>Telefono: {{ company.contactNumber }}</p>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-raised-button color="warn">Edit</button>
+              
               <button mat-raised-button color="accent" (click)="deleteCompany(company.id)">Delete</button>
             </mat-card-actions>
           </mat-card>
