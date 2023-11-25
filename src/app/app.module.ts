@@ -43,6 +43,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { ListaComponent } from './components/lista/lista.component';
 import { EditListaComponent } from './pages/edit-lista/edit-lista.component';
 import { ListCompaniesComponent } from './components/list-companies/list-companies.component';
+import { EmpAddEditComponent } from './components/emp-add-edit/emp-add-edit.component';
+import { EmpCrudComponent } from './components/emp-crud/emp-crud.component';
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -60,7 +62,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     SignUpComponent,
     ListaComponent,
     EditListaComponent,
-    ListCompaniesComponent
   ],
   imports: [
  

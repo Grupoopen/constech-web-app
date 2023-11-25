@@ -8,11 +8,13 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { ListaComponent } from './components/lista/lista.component';
 import { ListCompaniesComponent } from './components/list-companies/list-companies.component';
+import { EmpCrudComponent } from './components/emp-crud/emp-crud.component';
 
 
 const routes: Routes = [
   {path:'main', component: MainComponent, canActivate: [AuthGuard]},
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+  { path:'emp-crud', component:EmpCrudComponent,canActivate:[AuthGuard]},
   { path: 'sign-in', component: SignInComponent },
   { path: 'register-user', component: SignUpComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
