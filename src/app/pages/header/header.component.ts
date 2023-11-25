@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
+  constructor(private router: Router) {}
   title = 'constech-web-app';
   options = [
 
@@ -15,4 +18,9 @@ export class HeaderComponent {
     { path: '/emp-crud', title:'Compañias'},
 
   ]
+
+  logout() {
+
+    this.router.navigate(['/sign-in']);
+  }
 }
