@@ -16,8 +16,8 @@ export class EmployeeService {
     return this._http.put(`http://localhost:8040/engineers/${id}`, data);
   }
 
-  getEmployeeList(): Observable<any> {
-    return this._http.get('http://localhost:8040/engineers/');
+  getEmployeeList(): Observable<any[]> {
+    return this._http.get<any[]>('http://localhost:8040/engineers/');
   }
 
   deleteEmployee(id: number): Observable<any> {
