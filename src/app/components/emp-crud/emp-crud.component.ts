@@ -59,7 +59,6 @@ export class EmpCrudComponent implements OnInit {
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
       },
-      error: console.log,
     });
   }
 
