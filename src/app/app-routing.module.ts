@@ -9,6 +9,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { ListaComponent } from './components/lista/lista.component';
 import { ListCompaniesComponent } from './components/list-companies/list-companies.component';
 import { EmpCrudComponent } from './components/emp-crud/emp-crud.component';
+import {HeaderComponent} from "./pages/header/header.component";
 
 
 const routes: Routes = [
@@ -21,8 +22,8 @@ const routes: Routes = [
   { path: 'verify-email-address', component: VerifyEmailComponent },
   {path: 'lista',component:ListaComponent,canActivate:[AuthGuard]},
   {path: 'companies',component:ListCompaniesComponent,canActivate:[AuthGuard]},
-  
-  
+
+
 ];
 
 @NgModule({

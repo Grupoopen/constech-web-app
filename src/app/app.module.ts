@@ -24,6 +24,7 @@ import { MainComponent } from './pages/main/main.component';
 import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 import { MaterialModule } from './material.module';
 import { CommonModule, NgIf } from '@angular/common';
+import {HeaderComponent} from "./pages/header/header.component";
 
 
 //Firebase Configuration Imports
@@ -64,10 +65,11 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     ListCompaniesComponent,
     EditListaComponent,
     EmpAddEditComponent,
+    HeaderComponent,
     EmpCrudComponent
   ],
   imports: [
- 
+
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -87,12 +89,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
-    MaterialModule, 
+    MaterialModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    FormsModule, 
-    MatFormFieldModule, 
-    MatInputModule, 
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     ReactiveFormsModule,
     NgIf,
     AngularFireModule.initializeApp(environment.firebase),
