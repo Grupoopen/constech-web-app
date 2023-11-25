@@ -61,7 +61,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     SignInComponent,
     SignUpComponent,
     ListaComponent,
+    ListCompaniesComponent,
     EditListaComponent,
+    EmpAddEditComponent,
+    EmpCrudComponent
   ],
   imports: [
  
